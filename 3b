@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    var screenwdith= MediaQuery.of(context).size.width;
+    return MaterialApp(
+      home: Scaffold(
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            if(screenwdith<600){
+              return Column(
+                children: [
+                  Container(width: 100,height: 100,color: Colors.red,),
+                  ],
+              );
+            }
+            else if(screenwdith<900){
+              return Row(
+                children: [
+                   Container(width: 100,height: 100,color: Colors.red,),
+                  Container(width: 100,height: 100,color: Colors.green,), 
+                ],
+              );
+            }
+            else{
+               return Row(
+                children: [
+                   Container(width: 100,height: 100,color: Colors.red,),
+                  Container(width: 100,height: 100,color: Colors.green,),
+                   Container(width: 100,height: 100,color: Colors.black,),
+                  
+                ],
+              );
+            }
+          },
+        ),
+      ),
+    );
+  }
+}
